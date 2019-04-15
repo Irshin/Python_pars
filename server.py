@@ -6,7 +6,7 @@ routes = web.RouteTableDef()
 
 @routes.get('/')
 async def hello(request):
-    return web.Response(text="Hello, world NAX")
+    return web.Response(text="Hello, world NAXffsdgf")
 
 app = web.Application()
 app.add_routes(routes)
