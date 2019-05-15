@@ -9,7 +9,7 @@ async def fetch(session, url):
         return await response.text()
 
 
-async def main():
+async def get_data():
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.get('https://whattomine.com/coins/1.json') as btc:
             result_btc = await btc.json()
@@ -147,6 +147,14 @@ async def main():
                 "profit": result_dash["profit"]
             },
                     }
-    print(ujson.dumps(new_dict))
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+    return new_dict
+
+
+def main():
+    loop = asyncio.get_event_loop()
+    result = loop.run_until_complete(get_data())
+    print(result)
+
+
+if __name__ == '__main__':
+    main()
