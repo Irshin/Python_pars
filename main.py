@@ -1,6 +1,7 @@
 import aiohttp
 import asyncio
 import ujson
+
 timeout = aiohttp.ClientTimeout(total=360)
 
 
@@ -147,6 +148,7 @@ async def get_data():
                 "profit": result_dash["profit"]
             },
                     }
+
     return new_dict
 
 
